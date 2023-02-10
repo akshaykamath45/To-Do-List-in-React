@@ -11,6 +11,25 @@ function App() {
     const newToDoList=[...toDoList,newText];//... is the spread operator.It means that we are copying the old array and adding the new task to it.
     setToDoList(newToDoList);
   }
+  const deleteTask=(taskName)=>{
+    //Filter Function
+    // const arr=["akshay","aditya","james"];
+    // const newArr=arr.filter((name)=>{
+    //   if(name === "akshay"){
+    //     return false;
+    //   }else{
+    //     return true;
+    //   }
+    // })
+    const newToDoList=toDoList.filter((task)=>{
+      if(task===taskName){
+        return false;
+      }else{
+        return true;
+      }
+    })
+    setToDoList(newToDoList);
+  }
   return (
     <div className="App">
       <div className="addTask">
@@ -18,9 +37,14 @@ function App() {
         <button onClick={addTask}>Add Task</button>
       </div>
 
-      <div classname="lists">
+      <div classname="list">
         {toDoList.map((task)=>{
-          return <h1>{task}</h1>
+             return(
+                <div>
+                <h1>{task}</h1>
+                <button onClick={()=>deleteTask(task)}>X</button>
+              </div>
+             );
         })}
       </div>
     </div>
