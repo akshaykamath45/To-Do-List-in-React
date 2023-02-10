@@ -12,7 +12,7 @@ function App() {
 
   const addTask = () => {
     const task = {
-      id: toDoList.length === 0 ? 1 : toDoList[toDoList.length - 1] + 1,
+      id: toDoList.length === 0 ? 1 : toDoList[toDoList.length - 1].id + 1,
       taskName: newText,
       completed: false, //If the task is completed or not.
     };
@@ -49,7 +49,7 @@ function App() {
     );
   };
 
-  
+
   return (
     <div className="App">
       <div className="addTask">
